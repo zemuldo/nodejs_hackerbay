@@ -4,6 +4,10 @@
   "description": "Hackerbay Interview Backend microservice, nodejs, jawt, auth, travis ci, mocha, docker",
   "main": "app.js",
   "scripts": {
+    "dev": "PORT=8099 nodemon app.js",
+    "start": "pm2 start ecosystem.config.js --env production",
+    "reload": "pm2 reload ecosystem.config.js --update-env",
+    "restart": "pm2 restart ecosystem.config.js --update-env",
     "test": "mocha"
   },
   "repository": {
@@ -23,7 +27,10 @@
   "homepage": "https://github.com/zemuldo/nodejs_hackerbay#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "cli-color": "^1.2.0",
     "express": "^4.16.3",
-    "jsonwebtoken": "^8.2.1"
+    "jsonwebtoken": "^8.2.1",
+    "mocha": "^5.1.0",
+    "mongodb": "^3.0.6"
   }
 }

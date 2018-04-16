@@ -7,14 +7,10 @@ logger.status('Setting up database client...')
 
 const env =  config[node_env]
  
-// Connection URL
 const url = `mongodb://${env.dbHost}:${env.dbPort}`;
- 
-// Database Name
 
-let db
+let collections = {}
  
-// Use connect method to connect to the server
 MongoClient.connect(url, function(e, client) {
   if(e) {
       console.log(e)
@@ -27,9 +23,9 @@ MongoClient.connect(url, function(e, client) {
       "Memory Usage":process.memoryUsage(),
       "Process ID":process.pid
   })
-  db = client.db(env.dbName);
+
+  let db = client.db(env.dbName);
+  collections.users = db.collection('users')
 });
 
-module.exports = {
-    db:db
-}
+module.exports = collections
