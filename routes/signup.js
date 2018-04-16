@@ -34,5 +34,6 @@ route.post('/signup', (req, res) =>{
         res.send({error:e?e.error || 'Internal server error':'Internal server error'})
     })
   });
+  
 
   module.exports = route

@@ -2,21 +2,38 @@
 const logger = require('../tools/logger')
 const express = require('express')
 const route = express()
-const {db } = require('../db/mongo')
+const collections = require('../db/mongo')
+const { hash, validate } = require('../tools/crypt');
+const jwt = require('jsonwebtoken')
 
-route.post('/login',(req,res)=>{
-    return new Promise((resolve,reject)=>{
-        resolve(true)
+route.post('/login', (req, res) => {
+    return new Promise((resolve, reject) => {
+        if (!req.body.password || !req.body.userName) reject({ error: 'userName and password are required' })
+        resolve(collections.users.findOne({ userName: req.body.userName }))
     })
-    .then(o=>{
-        res.statusCode = 200
-        res.send(o)
-        return o
-    })
-    .catch(e=>{
-        res.statusCode = e.statusCode || 500;
-        res.send({error:e?e.error || 'Internal server error':'Internal server error'})
-    })
+        .then(o => {
+            if (!o) throw { error: 'account not fund', statusCode: 404 }
+            return validate(o.password, req.body.password)
+        })
+        .then(o => {
+            if (o) {
+                res.statusCode = 200
+                res.send({
+                    state:'success',
+                    token: jwt.sign({userName:req.body.userName}, 'ajskhdakuhduayajkdbaskjhfusdackjhsakhfck<gdc<zskbfkjz<bkxjvjkzzzxcxzc')
+                })
+                return o
+            }
+            else {
+                throw { error: 'invalid username or password', statusCode: 401 }
+            }
+
+        })
+        .catch(e => {
+            console.log(e)
+            res.statusCode = e.statusCode || 500;
+            res.send({ error: e ? e.error || 'Internal server error' : 'Internal server error' })
+        })
 })
 
 module.exports = route
