@@ -1,0 +1,29 @@
+{
+  "name": "nodejs_hackerbay",
+  "version": "1.0.0",
+  "description": "Hackerbay Interview Backend microservice, nodejs, jawt, auth, travis ci, mocha, docker",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zemuldo/nodejs_hackerbay.git"
+  },
+  "keywords": [
+    "hackerbay",
+    "nodejs",
+    "interview"
+  ],
+  "author": "Danstan Otieno Onyango",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zemuldo/nodejs_hackerbay/issues"
+  },
+  "homepage": "https://github.com/zemuldo/nodejs_hackerbay#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.2.1"
+  }
+}
