@@ -1,5 +1,6 @@
 'use strict'
 const jwt = require('jsonwebtoken')
+const {jwtSecret} = require('../conf')
 
 module.exports = ('/', (req, res, next) => {
     return new Promise((resolve, reject) => {
@@ -7,8 +8,8 @@ module.exports = ('/', (req, res, next) => {
         if(!token){
             throw { error: 'missing token' } 
         }
-        jwt.verify(token, 'ajskhdakuhduayajkdbaskjhfusdackjhsakhfck<gdc<zskbfkjz<bkxjvjkzzzxcxzc', function (err, decoded) {
-            if (err) {
+        jwt.verify(token, jwtSecret, function (e, token) {
+            if (e) {
                 reject({ error: 'Unauthorised Access Attempt, Invalid Token', statusCode: 401 })
             } else {
                 resolve({ state: true })

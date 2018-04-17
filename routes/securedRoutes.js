@@ -3,18 +3,23 @@ const logger = require('../tools/logger')
 const express = require('express')
 const route = express()
 const collections = require('../db/mongo')
-
+const { applyPatch } = require('fast-json-patch');
 const jwtMiddleware = require('../middlewares/authMiddleware')
 
 route.use(jwtMiddleware)
 
-route.post('/profile', (req, res) => {
+route.post('/json-create', (req, res) => {
     return new Promise((resolve, reject) => {
-        resolve(req.body)
+
+        resolve(collections.patchUs.replaceOne(
+            { userName: req.body.userName },
+            req.body,
+            { upsert: true }
+        ))
     })
         .then(o => {
             res.statusCode = 200
-            res.send('Hi, welcome to a secure route')
+            res.send(o)
         })
         .catch(e => {
             console.log(e)
@@ -23,13 +28,14 @@ route.post('/profile', (req, res) => {
         })
 })
 
-route.get('/profile', (req, res) => {
+route.post('/jsonpatch', (req, res) => {
+    console.log(req.body)
     return new Promise((resolve, reject) => {
-        resolve(req.body)
+        resolve(applyPatch(req.body.document, req.body.patch).newDocument)
     })
         .then(o => {
             res.statusCode = 200
-            res.send('Hi, welcome to a secure route')
+            res.send(o)
         })
         .catch(e => {
             console.log(e)

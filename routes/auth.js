@@ -5,6 +5,7 @@ const route = express()
 const collections = require('../db/mongo')
 const { hash, validate } = require('../tools/crypt');
 const jwt = require('jsonwebtoken')
+const {jwtSecret} = require('../conf')
 
 route.post('/login', (req, res) => {
     return new Promise((resolve, reject) => {
@@ -20,7 +21,7 @@ route.post('/login', (req, res) => {
                 res.statusCode = 200
                 res.send({
                     state:'success',
-                    token: jwt.sign({userName:req.body.userName}, 'ajskhdakuhduayajkdbaskjhfusdackjhsakhfck<gdc<zskbfkjz<bkxjvjkzzzxcxzc')
+                    token: jwt.sign({userName:req.body.userName}, jwtSecret)
                 })
                 return o
             }

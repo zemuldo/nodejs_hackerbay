@@ -13,5 +13,6 @@ module.exports = {
         dbHost:'127.0.0.1',
         dbName:"nodejs_hackerbay",
         dbPort:27017
-    }
+    },
+    jwtSecret:'ajskhdakuhduayajkdbaskjhfusdackjhsakhfck<gdc<zskbfkjz<bkxjvjkzzzxcxzcdfgdfgdfgaaasaospdbcsdkfsae7246eshjf'
 }

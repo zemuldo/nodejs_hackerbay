@@ -26,6 +26,7 @@ MongoClient.connect(url, function(e, client) {
 
   let db = client.db(env.dbName);
   collections.users = db.collection('users')
+  collections.patchUs = db.collection('patchUs')
 });
 
 module.exports = collections
