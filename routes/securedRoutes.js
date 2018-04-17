@@ -8,7 +8,7 @@ const jwtMiddleware = require('../middlewares/authMiddleware')
 const request = require('request');
 const { resize } = require('../tools/thumbnail')
 
-//route.use(jwtMiddleware)
+route.use(jwtMiddleware)
 
 route.get('/image-thumbnail/:width/:height/:url(*)', function (req, res) {
     logger.status(`performng image resize for ${req.get('host')} ${req.originalUrl}`)
