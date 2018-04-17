@@ -25,10 +25,6 @@ function generateSalt(len) {
     return salt;
 }
 
-function md5(string) {
-    return crypto.createHash('md5').update(string).digest('hex');
-}
-
 function sha512(password, salt) {
     let hash = crypto.createHmac('sha512', salt);
     hash.update(password);
