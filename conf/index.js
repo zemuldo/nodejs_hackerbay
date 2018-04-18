@@ -14,5 +14,5 @@ module.exports = {
         dbName:process.env.DB_NAME || 'nodejs_hackerbay',
         dbPort:process.env.DB_PORT || 27017
     },
-    jwtSecret:'ajskhdakuhduayajkdbaskjhfusdackjhsakhfck<gdc<zskbfkjz<bkxjvjkzzzxcxzcdfgdfgdfgaaasaospdbcsdkfsae7246eshjf'
+    jwtSecret:process.env.JWT_KEY || 'sommmmeeeveeeeeryunguessablestring'
 }
