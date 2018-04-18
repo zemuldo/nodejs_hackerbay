@@ -1,5 +1,6 @@
 'use strict';
 const gm = require('gm');
+const logger = require('./logger')
 
 module.exports = {
     resize: (inputStream, format, toWidth, toHeight) => {
