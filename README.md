@@ -6,6 +6,11 @@ This Nodejs Web Application - Implemenets image optimization, json webtoken auth
 
 ## Usage
 
-clone the applocation
+Clone the applocation
+
+```unix
+git clone git@github.com:zemuldo/nodejs_hackerbay.git
+
+```
 
 

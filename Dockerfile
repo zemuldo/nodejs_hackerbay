@@ -1,10 +1,12 @@
 FROM node:carbon
 
+# Install system requirements Graphics magic and Mongodb
 RUN apt-get update -y
 RUN apt-get install mongodb graphicsmagick -y
 RUN mkdir -p /data/db/
 RUN chown `id -u` /data/db
 RUN /etc/init.d/mongodb start
+
 # Create app directory
 WORKDIR /usr/src/app
 
@@ -15,10 +17,7 @@ COPY package*.json ./
 
 RUN npm install
 
-# If you are building your code for production
-# RUN npm install --only=production
-
-# Bundle app source
+# BUNDLE THE CODE
 COPY . .
 
 EXPOSE 8099 
