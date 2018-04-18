@@ -13,6 +13,8 @@ git clone git@github.com:zemuldo/nodejs_hackerbay.git
 
 ```
 
+## *Please look at /conf/index.js to see what environmental varaibles are needed by this app*
+
 The endpoints available in this application are 
 
 /signup
