@@ -188,3 +188,8 @@ HEADERS
 This endpoint returns an image optimized to the what is sent
 
 ## All secured endpoints will return 401 when accessed without an signed token
+
+# Docker, Docker Compose
+
+This repo has a dockerfile and a docker compose yml that build with all required assets for the app to deploy.
+Please refer to docker or docker compose docs for usage.
