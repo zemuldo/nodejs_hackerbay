@@ -13,4 +13,28 @@ git clone git@github.com:zemuldo/nodejs_hackerbay.git
 
 ```
 
+The endpoints available in this application are 
+
+/signup
+/login
+/jsonpatch
+/image-thumbnail/:width/:height/:url(*)
+
+POST Signup
+```javascript
+    /signup
+```
+HEADERS
+```javascript
+    Content-Typeapplication/json
+```
+BODY
+
+```javascript
+    {
+        "userName":"hackerbay",
+        "password":"abc123"
+    }
+
+```
 
