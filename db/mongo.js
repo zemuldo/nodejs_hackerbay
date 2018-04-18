@@ -13,7 +13,7 @@ let collections = {}
  
 MongoClient.connect(url, function(e, client) {
   if(e) {
-      console.log(e)
+      logger.error(e)
       logger.error(JSON.stringify(e))
       throw {error:'Database connection failed'}
   }

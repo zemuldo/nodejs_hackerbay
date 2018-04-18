@@ -13,6 +13,7 @@ module.exports = {
         })
             .then(o => o)
             .catch(e => {
+                logger.error(e)
                return { error:e.error || 'internal server error'}
             })
     }
