@@ -171,8 +171,10 @@ Public
 
 ## GET Get Thumnail
 
+This endpont takes an image url, width and height, downnloads the image and resizes the sends back the optimized image
+
 ```javascript
-    http://localhost:8099/image-thumbnail/50/50/https://upload.wikimedia.org/wikipedia/commons/d/d9/HackerBay_Logo.png
+    /image-thumbnail/50/50/https://upload.wikimedia.org/wikipedia/commons/d/d9/HackerBay_Logo.png
 ```
 
 HEADERS
