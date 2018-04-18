@@ -6,7 +6,7 @@ const {setCors} = require('./tools/utilities')
 const auth = require('./routes/auth')
 const singup = require('./routes/signup')
 const securedRoutes = require('./routes/securedRoutes')
-logger.status(`Satrting microservice........`)
+logger.status('Satrting microservice........')
 
 const app = express()
 

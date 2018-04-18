@@ -10,6 +10,6 @@
     "parser": "babel-eslint",
   
     "rules": {
-      
+        "quotes": ["error", "single"]
     }
 }

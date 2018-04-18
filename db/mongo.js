@@ -17,11 +17,11 @@ MongoClient.connect(url, function(e, client) {
       logger.error(JSON.stringify(e))
       throw {error:'Database connection failed'}
   }
-  logger.success("Connected to MongoDB , DBName: nodejs_hackerbay");
+  logger.success('Connected to MongoDB , DBName: nodejs_hackerbay');
   logger.system({
-      "Startup Status":'Application started succesfully',
-      "Memory Usage":process.memoryUsage(),
-      "Process ID":process.pid
+      'Startup Status':'Application started succesfully',
+      'Memory Usage':process.memoryUsage(),
+      'Process ID':process.pid
   })
 
   let db = client.db(env.dbName);

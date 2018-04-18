@@ -28,7 +28,7 @@ module.exports = ('/', (req, res, next) => {
         console.log(e)
         res.statusCode = e.statusCode || 500;
         res.writeHead(403, {'Content-Type': 'text/html'});
-            res.end(`<html><h1>401 Unauthorized </h1></html>`);
+            res.end('<html><h1>401 Unauthorized </h1></html>');
         res.send({ error: e ? e.error || 'Internal server error' : 'Internal server error' })
     })
 })

@@ -9,7 +9,8 @@
     "reload": "pm2 reload ecosystem.config.js --update-env",
     "restart": "pm2 restart ecosystem.config.js --update-env",
     "lint": "eslint .",
-    "test": "mocha"
+    "test": "nyc --reporter=html --reporter=text mocha",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -40,6 +41,8 @@
   },
   "devDependencies": {
     "babel-eslint": "^8.2.3",
-    "eslint": "^4.19.1"
+    "coveralls": "^3.0.0",
+    "eslint": "^4.19.1",
+    "nyc": "^11.6.0"
   }
 }
