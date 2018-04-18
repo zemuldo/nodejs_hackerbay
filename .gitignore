@@ -4,3 +4,4 @@ node_modules
 .env
 data
 coverage
+.nyc_output
