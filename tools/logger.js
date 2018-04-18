@@ -12,9 +12,16 @@ var logger = new (winston.Logger)({
           config.colorize(options.level, options.level.toUpperCase()) + ' ' +
           (options.message ? options.message : '') +
           config.colorize(options.level,(options.meta && Object.keys(options.meta).length ? '\n\t'+ JSON.stringify(options.meta) : '' ))
-      }
+      },
+      prettyPrint: true
     })
   ]
+});
+winston.addColors({
+    error: 'red',
+    warn: 'yellow',
+    info: 'blue',
+    debug: 'green'
 });
 
 module.exports = {

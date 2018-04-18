@@ -1,7 +1,7 @@
 module.exports = {
     apps : [
         {
-          name: 'Server 0 8070',
+          name: 'Server 0 8098',
           script: './app.js',
           watch: true,
           env: {
@@ -14,7 +14,7 @@ module.exports = {
           }
         },
         {
-            name: 'Server 1 8071',
+            name: 'Server 1 8099',
             script: './app.js',
             watch: true,
             env: {

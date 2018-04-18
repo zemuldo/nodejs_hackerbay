@@ -18,7 +18,7 @@ app.use(auth)
 app.use(singup)
 app.use(securedRoutes)
 
-app.listen(process.env.PORT,'127.0.0.1',()=>{
-    logger.status(`Service started, Listening on http://localhost:${process.env.PORT}`)
+app.listen(8099,'0.0.0.0',()=>{
+    logger.status(`Service started, Listening on http://localhost:${8099}`)
 })
 

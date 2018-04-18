@@ -1,18 +1,18 @@
 module.exports = {
     developement:{
-        dbHost:'127.0.0.1',
-        dbName:'nodejs_hackerbay',
-        dbPort:27017
+        dbHost:process.env.DB_HOST || '127.0.0.1',
+        dbName:process.env.DB_NAME || 'nodejs_hackerbay',
+        dbPort:process.env.DB_PORT || 27017
     },
     dev:{
-        dbHost:'127.0.0.1',
-        dbName:'nodejs_hackerbay',
-        dbPort:27017
+        dbHost:process.env.DB_HOST || '127.0.0.1',
+        dbName:process.env.DB_NAME || 'nodejs_hackerbay',
+        dbPort:process.env.DB_PORT || 27017
     },
     production:{
-        dbHost:'127.0.0.1',
-        dbName:'nodejs_hackerbay',
-        dbPort:27017
+        dbHost:process.env.DB_HOST || '127.0.0.1',
+        dbName:process.env.DB_NAME || 'nodejs_hackerbay',
+        dbPort:process.env.DB_PORT || 27017
     },
     jwtSecret:'ajskhdakuhduayajkdbaskjhfusdackjhsakhfck<gdc<zskbfkjz<bkxjvjkzzzxcxzcdfgdfgdfgaaasaospdbcsdkfsae7246eshjf'
 }

@@ -1,0 +1,21 @@
+version: "2"
+services:
+    app:
+      container_name: nodejs_hackerbay
+      restart: always
+      build: .
+      ports:
+      - "8098:8098"
+      - "8099:8099"
+      environment:
+        - NODE_ENV=production
+        - DB_HOST=mongo
+        - DB_PORT=27017
+        - DB_NAME=nodejs_hackerbay
+    mongo:
+      container_name: mongo
+      image: mongo
+      volumes:
+        - ./data:/data/db
+      ports:
+        - "27017:27017"

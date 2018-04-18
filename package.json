@@ -5,9 +5,7 @@
   "main": "app.js",
   "scripts": {
     "dev": "PORT=8099 nodemon app.js",
-    "start": "pm2 start ecosystem.config.js --env production",
-    "reload": "pm2 reload ecosystem.config.js --update-env",
-    "restart": "pm2 restart ecosystem.config.js --update-env",
+    "start": "node app.js",
     "lint": "eslint .",
     "test": "nyc --reporter=html --reporter=text mocha",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
