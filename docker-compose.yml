@@ -1,6 +1,6 @@
 version: "2"
 services:
-    app:
+    nodejs_hackerbay:
       container_name: nodejs_hackerbay
       restart: always
       build: .
