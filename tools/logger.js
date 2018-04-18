@@ -1,48 +1,63 @@
 const col = require('cli-color')
+const winston = require('winston');
+var config = winston.config;
+var logger = new (winston.Logger)({
+  transports: [
+    new (winston.transports.Console)({
+      timestamp: function() {
+        return new Date().toISOString();
+      },
+      formatter: function(options) {
+        return options.timestamp() + ' ' +
+          config.colorize(options.level, options.level.toUpperCase()) + ' ' +
+          (options.message ? options.message : '') +
+          config.colorize(options.level,(options.meta && Object.keys(options.meta).length ? '\n\t'+ JSON.stringify(options.meta) : '' ))
+      }
+    })
+  ]
+});
 
 module.exports = {
     error: (mess) => {
 
-        console.log(col.red.bold.underline(`++++++${JSON.stringify(mess)} , {worker:{pid:${process.pid}}}`))
+        logger.error('error', { mess: mess, worker: { pid: process.pid } });
 
     },
     warn: (mess) => {
 
-        console.log(col.magenta(`++++++${JSON.stringify(mess)}, {worker:{pid:${process.pid}}}`))
+        logger.warn('warning', { mess: mess, worker: { pid: process.pid } });
     },
     success: (mess) => {
 
-        console.log(col.green(`++++++${JSON.stringify(mess)}, {worker:{pid:${process.pid}}}`))
+        logger.info('success', { mess: mess, worker: { pid: process.pid } });
 
     },
     system: (mess) => {
 
-        console.log(col.blue(`++++++${JSON.stringify(mess)}, {worker:{pid:${process.pid}}}`))
+        logger.log('system', { mess: mess, worker: { pid: process.pid } });
 
     },
     fail: (mess) => {
 
-        console.log(col.red(`++++++${JSON.stringify(mess)}, {worker:{pid:${process.pid}}}`))
+        logger.log('failed', { mess: mess, worker: { pid: process.pid } });
 
     },
     internal: (mess) => {
 
-        console.log(col.white(`++++++${JSON.stringify(mess)}, {worker:{pid:${process.pid}}}`))
-
+        logger.info('Internal', { mess: mess, worker: { pid: process.pid } });
     },
     status: (mess) => {
 
-        console.log(col.cyan(`++++++${JSON.stringify(mess)}, {worker:{pid:${process.pid}}}`))
+        logger.info('status', { mess: mess, worker: { pid: process.pid } });
 
     },
     timeout: (mess) => {
 
-        console.log(col.yellow(`++++++${JSON.stringify(mess)}, {worker:{pid:${process.pid}}}`))
-
+        logger.error('error', { mess: mess, worker: { pid: process.pid } });
     },
     db: (mess) => {
 
-        console.log(col.cyan(`++++++${JSON.stringify(mess)}, {worker:{pid:${process.pid}}}`))
+        logger.sql('db', { mess: mess, worker: { pid: process.pid } });
 
     }
 }
