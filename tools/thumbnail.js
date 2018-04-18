@@ -7,11 +7,13 @@ module.exports = {
             return gm(inputStream)
                 .resize(toWidth, toHeight)
                 .toBuffer(format, function (err, buffer) {
-                    if (err) reject({error:'<p>thumbnail error error</p>'});
+                    if (err) reject({error:'<p>thumbnail error</p>'});
                     resolve(buffer)
                 })
         })
             .then(o => o)
-            .catch(e => {error:e || 'internal server error'})
+            .catch(e => {
+               return { error:e.error || 'internal server error'}
+            })
     }
 }
