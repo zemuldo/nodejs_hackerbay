@@ -1,4 +1,3 @@
-const col = require('cli-color')
 const winston = require('winston');
 var config = winston.config;
 var logger = new (winston.Logger)({
